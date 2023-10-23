@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class RockPaperScissors {
     public static void play(Scanner sc) {
         Random cpuChoice = new Random();
-        boolean isGameOver = false;
+        boolean isGameOver = false; 
         boolean retryScreen = false;
         int win = 0;
         int lose = 0;
@@ -14,7 +14,7 @@ public class RockPaperScissors {
         String choices = "RPS";
         System.out.println("Welcome to Rock Paper Scissors");
         
-        while(!isGameOver){
+        while(!isGameOver){ // checks if the game is running or not
             char randomChar1 = choices.charAt(cpuChoice.nextInt(choices.length()));
             String s = String.valueOf(randomChar1);
             System.out.print("Would you like to pick (R)ock, (P)aper, (S)cissors, or (A)ny:");
@@ -23,7 +23,7 @@ public class RockPaperScissors {
                 char randomChar2 = choices.charAt(cpuChoice.nextInt(choices.length()));
                 player = String.valueOf(randomChar2);
             }
-            if (results(player,s) == 1){
+            if (results(player,s) == 1){ // this entire portion checks who won
                 retryScreen = true;
                 System.out.print(translate(player,s) + ". You win!");
                 win++;
@@ -72,7 +72,7 @@ public class RockPaperScissors {
             }
             else if (results(player,s) == 0){
                 retryScreen = true;
-                System.out.print(translate(player,s) + ". Its a tie! ");
+                System.out.print(translate(player,s) + ". it's a tie");
                 tie++;
                 System.out.print("\nYou have " + win + " wins and " + lose + " loses and " + tie + " ties");
                 while (retryScreen){
@@ -95,7 +95,7 @@ public class RockPaperScissors {
 
             }
             else{
-                System.out.print("Invalid input, please try again");
+                System.out.println("Invalid input, please try again"); // Here just in case, you know?
             }
 
             
@@ -105,7 +105,7 @@ public class RockPaperScissors {
     /**
      * JAVADOC HERE
      */
-    public static int results(String playerChoice, String computerChoice) {
+    public static int results(String playerChoice, String computerChoice) { // checks who wins, returns int
         if (playerChoice.equals("R")){
             if (computerChoice.equals("R")){
                 return 0; // tie
@@ -144,7 +144,7 @@ public class RockPaperScissors {
 
     }
 
-    public static int cont(String input){
+    public static int cont(String input){ // gets input to see if they want to continue
         if (input.equals("Y")){
             return 1;
         }
@@ -156,7 +156,7 @@ public class RockPaperScissors {
         
     }
 
-    public static String translate(String player,String s){
+    public static String translate(String player,String s){ // literally just here to make printing easier lol.
         if (player.equals("R")){
             if (s.equals("R")){
                 return "You both picked Rock";

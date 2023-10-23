@@ -12,12 +12,12 @@ public class PalindromeTester {
         boolean isDoneTesting = false;
         boolean isDoneChecking = false;
         System.out.println("Welcome to Palindrome Tester");
-        while (!isDoneTesting){
+        while (!isDoneTesting){ // checking if user is done
             isDoneChecking = false;
             System.out.print("Enter a phrase: ");
             String input = sc.nextLine();
-            String temp = input;
-            if (isPalindrome(input) == true){
+            String temp = input; // makes a dupe (to be able to print)
+            if (isPalindrome(input) == true){ // checks if it is or  not
                 System.out.println(temp + " is a palindrome");
             } else{
                 System.out.println(temp + " is not a palindrome");
@@ -48,11 +48,11 @@ public class PalindromeTester {
     public static boolean isPalindrome(String phrase) {
         String input = phrase.toUpperCase();
         String temp = "";
-        input = input.replaceAll(" ", "");
+        input = input.replaceAll(" ", ""); // gets rid of spaces, and what ever is unecesssary
         input = input.replaceAll("\\d","");
         input = input.replaceAll("[^a-zA-Z0-9]", ""); // to be fair, I did copy the code for the special characters, but hey it saves space :p
         for (int i  = input.length() - 1; i >= 0; i--){
-            temp = temp + input.charAt(i);
+            temp = temp + input.charAt(i);// checks if it is real or not
         }
 
         if (input.equals(temp)){
